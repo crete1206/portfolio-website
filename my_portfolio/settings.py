@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-m*14m%p1h1o9hvkutyvj+hw-!ox7kjy1(m#^a)erq5w_*v=_ng'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'my_portfolio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],  # <--- Add this line to specify the templates directory
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,6 +122,5 @@ STATIC_URL = 'static/'
 
 # This tells Django to look for a folder named 'static' in your main directory
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'base/static'),
+   BASE_DIR / 'static',
 ]
